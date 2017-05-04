@@ -102,9 +102,9 @@ public class Variable implements Operand {
 
     /**
      * If this variable is initialized, then calculate the sine
-     * of it's most recently assigned value.
+     * of its most recently assigned value.
      *
-     * @return The sine of this variables most recently assigned value.
+     * @return The sine of this variable's most recently assigned value.
      * @throws EvaluationException If the variable is uninitialized.
      */
     @Override
@@ -113,28 +113,75 @@ public class Variable implements Operand {
     }
 
     /**
+     * If this variable is initialized, then calculate the cosine
+     * of its most recently assigned value.
      *
-     * @return
+     * @return The cosine of this variable's most recently assigned value.
+     * @throws EvaluationException If the variable in uninitialized.
      */
     @Override
-    public Operand cosine() {
+    public Operand cosine() throws EvaluationException {
         return new Real(getValue()).cosine();
     }
 
+    /**
+     * If this variable is initialized, then calculate the tangent
+     * of its most recently assigned value.
+     *
+     * @return The tangent of this variable's most recently assigned value.
+     * @throws EvaluationException If the variable in uninitialized.
+     */
     @Override
-    public Operand tangent() {
+    public Operand tangent() throws EvaluationException {
         return new Real(getValue()).tangent();
     }
 
+    /**
+     * If this variable is initialized, then calculate the value of
+     * raising e to its most recently assigned value (exp(x)).
+     *
+     * @return e<sup>this variable's most recently assigned value</sup>.
+     * @throws EvaluationException If the variable in uninitialized.
+     */
     @Override
-    public Operand exp() {
+    public Operand exp() throws EvaluationException {
         return new Real(getValue()).exp();
     }
 
+    /**
+     * If this variable is initialized, then calculate the square root
+     * of its most recently assigned value.
+     *
+     * @return The square root of this variable's most recently assigned value.
+     * @throws EvaluationException If the variable in uninitialized.
+     */
+    @Override
+    public Operand sqrt() throws EvaluationException {
+        return new Real(getValue()).sqrt();
+    }
+
+    /**
+     * An internal function that checks whether this Variable has been
+     * assigned a value before. If it has, the VariableMap will have
+     * an instance of it.
+     *
+     * @return {@code true} if the VariableMap has an instance of this
+     * Variable.
+     */
     private boolean isInitialized() {
         return VariableMap.INSTANCE.get(this) != null;
     }
 
+    /**
+     * Returns a String representation of this Variable. It always
+     * returns the symbol. If the variable is initialized, then its
+     * rounded off value is concatenated in the form
+     * <pre>
+     *     {@code symbol + " = " + value (rounded)}
+     * </pre>
+     *
+     * @return A String representation of this Variable.
+     */
     @Override
     public String toString() {
         return symbol + (isInitialized()
@@ -142,11 +189,24 @@ public class Variable implements Operand {
                 : "");
     }
 
+    /**
+     * Compares the given object and (if it is a Variable and) it has
+     * has the same symbol.
+     *
+     * @param obj The object to compare against.
+     * @return {@code true} if the two objects represent the same variable.
+     */
     @Override
     public boolean equals(Object obj) {
         return obj instanceof Variable && symbol.equals(((Variable) obj).symbol);
     }
 
+    /**
+     * Calculates the hashCode of the Variable based on the symbol.
+     * This is important for proper functioning with the VariableMap.
+     *
+     * @return The hashCode of this Variable based off its symbol.
+     */
     @Override
     public int hashCode() {
         return symbol.hashCode();

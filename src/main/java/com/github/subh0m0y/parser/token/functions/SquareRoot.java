@@ -6,6 +6,8 @@ import com.github.subh0m0y.parser.token.Operand;
 import com.github.subh0m0y.parser.token.Operator;
 
 /**
+ * Wrapper for the square root function (sqrt).
+ *
  * @author Subhomoy Haldar
  * @version 2017.04.22
  */

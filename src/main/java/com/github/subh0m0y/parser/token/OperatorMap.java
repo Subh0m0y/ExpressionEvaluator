@@ -6,7 +6,6 @@ import com.github.subh0m0y.parser.token.operations.*;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * @author Subhomoy Haldar
@@ -41,11 +40,11 @@ public class OperatorMap {
         return map;
     }
 
-    public Operator getFor(final char ch) {
+    Operator getFor(final char ch) {
         return getFor(String.valueOf(ch));
     }
 
-    public Operator getFor(final String symbol) {
+    Operator getFor(final String symbol) {
         return operationMap.get(symbol);
     }
 

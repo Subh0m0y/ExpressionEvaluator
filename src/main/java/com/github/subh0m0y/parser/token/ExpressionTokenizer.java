@@ -15,19 +15,13 @@ import java.util.List;
  * @version 1.0
  */
 public class ExpressionTokenizer {
-
-
-    public static void main(String[] args) throws UnrecognizedOperatorException, ImproperParenthesesException, UnrecognizedCharacterException {
-        System.out.println(tokenize("1+-2"));
-        System.out.println(tokenize("x+y"));
-        System.out.println(tokenize("2sin(a)cos(b)"));
-        System.out.println(tokenize("1+(2^(4-3))sin(4pi/2)"));
-        System.out.println(tokenize("1x+2/3(yes*sin(3pi/2))"));
-    }
-
+    // A short alias for the OperationMap's instance.
     private static final OperatorMap MAP = OperatorMap.INSTANCE;
+    // Characters that are valid for operators
     private static final String OP_CHARS = "+*/^=";
+    // Non-numeric characters that are needed to represent numbers
     private static final String NUM_CHARS = "-.";
+    // Non-alphabetic characters that can be a part of variable names
     private static final String VAR_CHARS = "_";
 
     public static List<Token> tokenize(final String input) throws

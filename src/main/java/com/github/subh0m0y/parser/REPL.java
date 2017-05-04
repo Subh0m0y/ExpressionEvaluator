@@ -31,6 +31,7 @@ public class REPL {
             "\n 2. Cosine - cos(x)" +
             "\n 3. Tangent - tan(x)" +
             "\n 4. Exponential - exp(x)" +
+            "\n 5. Square root - sqrt(x)" +
             "\n\n To display this message again, type 'help'" +
             "\n in a new line. To exit, type 'exit' or 'quit'.";
 

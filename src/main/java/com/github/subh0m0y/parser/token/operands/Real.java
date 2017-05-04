@@ -1,5 +1,6 @@
 package com.github.subh0m0y.parser.token.operands;
 
+import com.github.subh0m0y.parser.exceptions.EvaluationException;
 import com.github.subh0m0y.parser.token.Operand;
 
 /**
@@ -133,6 +134,24 @@ public class Real implements Operand {
     @Override
     public Operand exp() {
         return new Real(Math.exp(value));
+    }
+
+    /**
+     * Returns the principal square-root of this Real value. If
+     * it is negative, then an {@link EvaluationException} is
+     * thrown.
+     *
+     * @return The principal square-root of this Real value.
+     * @throws EvaluationException If it's value is negative.
+     */
+    @Override
+    public Operand sqrt() throws EvaluationException {
+        if (value < 0) {
+            throw new EvaluationException(
+                    "Cannot calculate square root of a negative real number."
+            );
+        }
+        return new Real(Math.sqrt(value));
     }
 
     /**

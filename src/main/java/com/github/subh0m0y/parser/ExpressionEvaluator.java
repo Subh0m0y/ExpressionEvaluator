@@ -1,6 +1,7 @@
 package com.github.subh0m0y.parser;
 
 import com.github.subh0m0y.parser.exceptions.ArityException;
+import com.github.subh0m0y.parser.exceptions.EvaluationException;
 import com.github.subh0m0y.parser.exceptions.ImproperParenthesesException;
 import com.github.subh0m0y.parser.token.Operand;
 import com.github.subh0m0y.parser.token.Operator;
@@ -85,9 +86,4 @@ public class ExpressionEvaluator {
         return stack.pop();
     }
 
-    public static class EvaluationException extends RuntimeException {
-        public EvaluationException(String message) {
-            super(message);
-        }
-    }
 }

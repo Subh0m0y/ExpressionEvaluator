@@ -1,15 +1,11 @@
 package com.github.subh0m0y.parser.token.operations;
 
-import com.github.subh0m0y.parser.ExpressionEvaluator;
 import com.github.subh0m0y.parser.exceptions.ArityException;
+import com.github.subh0m0y.parser.exceptions.EvaluationException;
 import com.github.subh0m0y.parser.token.Operand;
 import com.github.subh0m0y.parser.token.Operator;
 import com.github.subh0m0y.parser.token.operands.Variable;
-import com.github.subh0m0y.parser.token.operands.VariableMap;
-
-import java.util.Arrays;
-
-import static com.github.subh0m0y.parser.ExpressionEvaluator.*;
+import com.github.subh0m0y.parser.token.VariableMap;
 
 /**
  * @author Subhomoy Haldar

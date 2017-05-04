@@ -1,8 +1,5 @@
 package com.github.subh0m0y.parser.token;
 
-import com.github.subh0m0y.parser.ExpressionEvaluator;
-import com.github.subh0m0y.parser.ExpressionEvaluator.EvaluationException;
-
 /**
  * This class defines the high-level skeletal structure
  * for all Operands. There are three types of operands:
@@ -19,7 +16,7 @@ public interface Operand extends Token {
     /**
      * @return The value that this operand maps to.
      */
-    double getValue() throws EvaluationException;
+    double getValue();
 
     Operand add(Operand addend);
 
@@ -36,4 +33,6 @@ public interface Operand extends Token {
     Operand tangent();
 
     Operand exp();
+
+    Operand sqrt();
 }

@@ -1,7 +1,6 @@
 package com.github.subh0m0y.parser.token;
 
-import com.github.subh0m0y.parser.ExpressionEvaluator;
-import com.github.subh0m0y.parser.ExpressionEvaluator.EvaluationException;
+import com.github.subh0m0y.parser.exceptions.EvaluationException;
 import com.github.subh0m0y.parser.exceptions.ArityException;
 
 import java.util.StringJoiner;

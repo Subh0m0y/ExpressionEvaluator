@@ -26,7 +26,7 @@ public class Variable implements Operand {
      * Creates a new instance of a Variable with the  given symbol.
      * The Variable may or may not be initialized.
      *
-     * @param symbol
+     * @param symbol The symbol to uniquely identify this variable.
      */
     public Variable(String symbol) {
         this.symbol = symbol;
@@ -117,7 +117,7 @@ public class Variable implements Operand {
      * of its most recently assigned value.
      *
      * @return The cosine of this variable's most recently assigned value.
-     * @throws EvaluationException If the variable in uninitialized.
+     * @throws EvaluationException If the variable is uninitialized.
      */
     @Override
     public Operand cosine() throws EvaluationException {
@@ -129,7 +129,7 @@ public class Variable implements Operand {
      * of its most recently assigned value.
      *
      * @return The tangent of this variable's most recently assigned value.
-     * @throws EvaluationException If the variable in uninitialized.
+     * @throws EvaluationException If the variable is uninitialized.
      */
     @Override
     public Operand tangent() throws EvaluationException {
@@ -141,7 +141,7 @@ public class Variable implements Operand {
      * raising e to its most recently assigned value (exp(x)).
      *
      * @return e<sup>this variable's most recently assigned value</sup>.
-     * @throws EvaluationException If the variable in uninitialized.
+     * @throws EvaluationException If the variable is uninitialized.
      */
     @Override
     public Operand exp() throws EvaluationException {
@@ -153,11 +153,36 @@ public class Variable implements Operand {
      * of its most recently assigned value.
      *
      * @return The square root of this variable's most recently assigned value.
-     * @throws EvaluationException If the variable in uninitialized.
+     * @throws EvaluationException If the variable is uninitialized.
      */
     @Override
     public Operand sqrt() throws EvaluationException {
         return new Real(getValue()).sqrt();
+    }
+
+    /**
+     * If this variable is initialized, then calculates the absolute value
+     * of its most recently assigned value.
+     *
+     * @return The absolute value of this variable's most recently assigned value.
+     * @throws EvaluationException If the variable is uninitialized.
+     */
+    @Override
+    public Operand abs() throws EvaluationException {
+        return new Real(getValue()).abs();
+    }
+
+    /**
+     * If this variable is initialized, then calculates the natural logarithm
+     * of its most recently assigned value.
+     *
+     * @return The natural logarithm of this variable's most recently assigned value.
+     * @throws EvaluationException If the variable is uninitialized or its value
+     *                             is negative.
+     */
+    @Override
+    public Operand log() throws EvaluationException {
+        return new Real(getValue()).log();
     }
 
     /**

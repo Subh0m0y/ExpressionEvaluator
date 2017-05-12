@@ -31,11 +31,13 @@ public class OperatorMap {
         map.put(RaisingToPower.INSTANCE.getSymbol(), RaisingToPower.INSTANCE);
 
         // The functions, which are used in prefix form
+        map.put(Absolute.INSTANCE.getSymbol(), Absolute.INSTANCE);
         map.put(SquareRoot.INSTANCE.getSymbol(), SquareRoot.INSTANCE);
         map.put(Sine.INSTANCE.getSymbol(), Sine.INSTANCE);
         map.put(Cosine.INSTANCE.getSymbol(), Cosine.INSTANCE);
         map.put(Tangent.INSTANCE.getSymbol(), Tangent.INSTANCE);
         map.put(Exponential.INSTANCE.getSymbol(), Exponential.INSTANCE);
+        map.put(Logarithm.INSTANCE.getSymbol(), Logarithm.INSTANCE);
 
         return map;
     }

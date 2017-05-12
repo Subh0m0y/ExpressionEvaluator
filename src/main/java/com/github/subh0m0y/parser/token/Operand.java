@@ -35,4 +35,8 @@ public interface Operand extends Token {
     Operand exp();
 
     Operand sqrt();
+
+    Operand abs();
+
+    Operand log();
 }

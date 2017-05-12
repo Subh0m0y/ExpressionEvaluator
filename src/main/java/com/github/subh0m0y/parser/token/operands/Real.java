@@ -142,7 +142,7 @@ public class Real implements Operand {
      * thrown.
      *
      * @return The principal square-root of this Real value.
-     * @throws EvaluationException If it's value is negative.
+     * @throws EvaluationException If its value is negative.
      */
     @Override
     public Operand sqrt() throws EvaluationException {
@@ -152,6 +152,36 @@ public class Real implements Operand {
             );
         }
         return new Real(Math.sqrt(value));
+    }
+
+    /**
+     * Returns the absolute, non-negative magnitude of this Real
+     * value. That is returns  itself if the value is positive, or
+     * the additive inverse of itself (-this) if it is negative.
+     *
+     * @return The absolute, non-negative magnitude of this Real
+     * value.
+     */
+    @Override
+    public Operand abs() {
+        return new Real(Math.abs(value));
+    }
+
+    /**
+     * Returns the natural logarithm of this Real value. If
+     * it is negative, then an {@link EvaluationException} is
+     * thrown.
+     *
+     * @return The natural logarithm of this Real value.
+     * @throws EvaluationException If its value is negative.
+     */
+    public Operand log() throws EvaluationException {
+        if (value < 0) {
+            throw new EvaluationException(
+                    "Cannot calculate logarithm of a negative real number."
+            );
+        }
+        return new Real(Math.log(value));
     }
 
     /**

@@ -9,11 +9,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * This is the class that binds the symbols of various operators
+ * with their functionality. This is possible by using a standard
+ * hierarchy for defining and gluing the functionality of the operands
+ * with the various Operators.
+ *
  * @author Subhomoy Haldar
- * @version 1.0
+ * @version 2017.05.18
  */
-public class OperatorMap {
-    public static OperatorMap INSTANCE = new OperatorMap();
+class OperatorMap {
+    static final OperatorMap INSTANCE = new OperatorMap();
 
     private final Map<String, Operator> operationMap;
 
@@ -21,6 +26,9 @@ public class OperatorMap {
         operationMap = Collections.unmodifiableMap(initializedMap());
     }
 
+    /**
+     * @return An initialized Map with all the functions bound to their symbols.
+     */
     private static Map<String, Operator> initializedMap() {
         Map<String, Operator> map = new HashMap<>();
 
@@ -43,10 +51,18 @@ public class OperatorMap {
         return map;
     }
 
-    Operator getFor(final char ch) {
-        return getFor(String.valueOf(ch));
+    /**
+     * @param character The character which uniquely defines an infix operator.
+     * @return The uniquely identified binary operator.
+     */
+    Operator getFor(final char character) {
+        return getFor(String.valueOf(character));
     }
 
+    /**
+     * @param symbol The function name which uniquely defines an operator.
+     * @return The required operator (may be an infix operator or a function).
+     */
     Operator getFor(final String symbol) {
         return operationMap.get(symbol);
     }

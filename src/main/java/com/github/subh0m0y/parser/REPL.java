@@ -8,8 +8,8 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
 
-import static com.github.subh0m0y.parser.ShuntingYardExpressionConverter.*;
-import static com.github.subh0m0y.parser.token.ExpressionTokenizer.*;
+import static com.github.subh0m0y.parser.ExpressionConverter.*;
+import static com.github.subh0m0y.parser.ExpressionTokenizer.*;
 
 /**
  * @author Subhomoy Haldar

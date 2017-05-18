@@ -9,41 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-import static com.github.subh0m0y.parser.token.ExpressionTokenizer.*;
+import static com.github.subh0m0y.parser.ExpressionTokenizer.*;
 
 /**
  * @author Subhomoy Haldar
  * @version 1.0
  */
-public class ShuntingYardExpressionConverter {
+class ExpressionConverter {
 
-    public static void main(String[] args) throws UnrecognizedOperatorException, ConversionException, ImproperParenthesesException, UnrecognizedCharacterException {
-        String[] expressions = {
-                "1 + 1",
-                "1 + 1 + 3",
-                "(1 + 1) + 3",
-                "sin(pi/2)cos(a*b)",
-                "exp(-R*t/K)",
-                "-b/2a",
-                "α-.2",
-                "sin(a, 1, 2)",
-                "a=2"
-        };
-        for (String expression : expressions) {
-            System.out.println(expression + " => " + convert(expression));
-        }
-    }
-
-    public static List<Token> convert(final String inputExpression) throws
-            ConversionException,
-            ImproperParenthesesException,
-            UnrecognizedOperatorException,
-            UnrecognizedCharacterException {
-        List<Token> tokenList = tokenize(inputExpression);
-        return convert(tokenList);
-    }
-
-    private static List<Token> convert(final List<Token> tokenList) throws
+    static List<Token> convert(final List<Token> tokenList) throws
             ConversionException,
             ImproperParenthesesException,
             UnrecognizedOperatorException {

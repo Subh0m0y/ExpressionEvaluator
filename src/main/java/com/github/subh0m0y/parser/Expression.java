@@ -1,10 +1,10 @@
 package com.github.subh0m0y.parser;
 
-import com.github.subh0m0y.parser.ShuntingYardExpressionConverter.ConversionException;
+import com.github.subh0m0y.parser.ExpressionConverter.ConversionException;
 import com.github.subh0m0y.parser.exceptions.ArityException;
 import com.github.subh0m0y.parser.exceptions.ImproperParenthesesException;
-import com.github.subh0m0y.parser.token.ExpressionTokenizer.UnrecognizedCharacterException;
-import com.github.subh0m0y.parser.token.ExpressionTokenizer.UnrecognizedOperatorException;
+import com.github.subh0m0y.parser.ExpressionTokenizer.UnrecognizedCharacterException;
+import com.github.subh0m0y.parser.ExpressionTokenizer.UnrecognizedOperatorException;
 import com.github.subh0m0y.parser.token.Operand;
 import com.github.subh0m0y.parser.token.Token;
 
@@ -24,7 +24,9 @@ public class Expression {
             UnrecognizedCharacterException,
             UnrecognizedOperatorException {
         tokens = Collections.unmodifiableList(
-                ShuntingYardExpressionConverter.convert(expressionString)
+                ExpressionConverter.convert(
+                        ExpressionTokenizer.tokenize(expressionString)
+                )
         );
     }
 

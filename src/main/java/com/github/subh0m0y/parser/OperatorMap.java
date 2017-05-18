@@ -1,5 +1,6 @@
-package com.github.subh0m0y.parser.token;
+package com.github.subh0m0y.parser;
 
+import com.github.subh0m0y.parser.token.Operator;
 import com.github.subh0m0y.parser.token.functions.*;
 import com.github.subh0m0y.parser.token.operations.*;
 

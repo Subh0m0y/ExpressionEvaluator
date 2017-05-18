@@ -8,11 +8,9 @@ import com.github.subh0m0y.parser.token.Operator;
 import com.github.subh0m0y.parser.token.Token;
 
 import java.util.List;
-import java.util.Scanner;
 import java.util.Stack;
 
-import static com.github.subh0m0y.parser.ShuntingYardExpressionConverter.*;
-import static com.github.subh0m0y.parser.token.ExpressionTokenizer.*;
+import static com.github.subh0m0y.parser.ExpressionTokenizer.*;
 
 /**
  * This class takes an expression in the form of a String
@@ -21,29 +19,7 @@ import static com.github.subh0m0y.parser.token.ExpressionTokenizer.*;
  * @author Subhomoy Haldar
  * @version 1.0
  */
-public class ExpressionEvaluator {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String input;
-        do {
-            System.out.print(">> ");
-            input = scanner.nextLine().trim();
-            try {
-                System.out.println(evaluate(input));
-            } catch (UnrecognizedCharacterException | ImproperParenthesesException | UnrecognizedOperatorException | ConversionException | ArityException e) {
-                e.printStackTrace();
-            }
-        } while (!input.isEmpty());
-    }
-
-    private static Operand evaluate(final String inputExpression) throws
-            UnrecognizedCharacterException,
-            ImproperParenthesesException,
-            ConversionException,
-            UnrecognizedOperatorException,
-            ArityException {
-        return evaluate(convert(inputExpression));
-    }
+class ExpressionEvaluator {
 
     static Operand evaluate(final List<Token> tokens) throws
             ArityException,
